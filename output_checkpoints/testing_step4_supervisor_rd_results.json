@@ -1,0 +1,546 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-24 18:28:19",
+    "predictions_file": "/projects/illinois/eng/cs/jimeng/zelalae2/scratch/output_checkpoints/pass2_rd_results/testing_step3_match_rd_context_output.json",
+    "ground_truth_file": "/projects/illinois/eng/cs/jimeng/zelalae2/scratch/output_checkpoints/testing_step3_match_rd_context_output.json",
+    "evaluation_file": "/projects/illinois/eng/cs/jimeng/zelalae2/scratch/output_checkpoints/testing_step3_evaluation_rd_results.json",
+    "model_info": {
+      "llm_type": "local",
+      "model_type": "mistral_24b",
+      "temperature": 0.5,
+      "retriever": "sentence_transformer",
+      "retriever_model": "abhinand/MedEmbed-small-v0.1"
+    }
+  },
+  "summary": {
+    "timestamp": "2025-07-24 18:28:19",
+    "categories": {
+      "false_negatives": {
+        "total": 1,
+        "confirmed_rare_disease_count": 0,
+        "confirmed_rare_disease_percentage": 0.0,
+        "flagged_for_review_count": 1,
+        "flagged_for_review_percentage": 100.0,
+        "confirmation_status": {
+          "is_rare_disease": {
+            "YES": 0,
+            "NO": 1
+          },
+          "flag_for_review": {
+            "YES": 1,
+            "NO": 0
+          }
+        }
+      },
+      "false_positives": {
+        "total": 5,
+        "confirmed_rare_disease_count": 4,
+        "confirmed_rare_disease_percentage": 80.0,
+        "flagged_for_review_count": 4,
+        "flagged_for_review_percentage": 80.0,
+        "confirmation_status": {
+          "is_rare_disease": {
+            "YES": 4,
+            "NO": 1
+          },
+          "flag_for_review": {
+            "YES": 4,
+            "NO": 1
+          }
+        }
+      },
+      "true_positives": {
+        "total": 5,
+        "confirmed_rare_disease_count": 4,
+        "confirmed_rare_disease_percentage": 80.0,
+        "flagged_for_review_count": 1,
+        "flagged_for_review_percentage": 20.0,
+        "confirmation_status": {
+          "is_rare_disease": {
+            "YES": 4,
+            "NO": 1
+          },
+          "flag_for_review": {
+            "YES": 1,
+            "NO": 4
+          }
+        }
+      }
+    },
+    "total_entities": 11,
+    "total_flagged_for_review": 6,
+    "flagged_for_review_percentage": 54.54545454545454,
+    "flagged_entities": [
+      {
+        "entity": "meningioma",
+        "document_id": "14320593",
+        "orpha_code": "2495",
+        "category": "false_negatives",
+        "explanation": "failed_disease_check [FLAGGED: Entity verified as not a rare disease despite being categorized as false negative]"
+      },
+      {
+        "entity": "hit",
+        "document_id": "13106750",
+        "orpha_code": "3325",
+        "category": "false_positives",
+        "explanation": "abbreviation_expansion [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]"
+      },
+      {
+        "entity": "renal cell carcinoma",
+        "document_id": "13730709",
+        "orpha_code": "217071",
+        "category": "false_positives",
+        "explanation": "multi_step_verification [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]"
+      },
+      {
+        "entity": "legionella infection",
+        "document_id": "17295887",
+        "orpha_code": "600832",
+        "category": "false_positives",
+        "explanation": "multi_step_verification [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]"
+      },
+      {
+        "entity": "sle",
+        "document_id": "19074847",
+        "orpha_code": "536",
+        "category": "false_positives",
+        "explanation": "abbreviation_expansion [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]"
+      },
+      {
+        "entity": "lyme disease",
+        "document_id": "12742994",
+        "orpha_code": "91546",
+        "category": "true_positives",
+        "explanation": "failed_disease_check [FLAGGED: Entity verified as not a rare disease despite being categorized as true positive]"
+      }
+    ]
+  },
+  "results": {
+    "false_negatives": [
+      {
+        "entity": "meningioma",
+        "context": "No context found.",
+        "is_rare_disease": false,
+        "flag_for_review": true,
+        "explanation": "failed_disease_check [FLAGGED: Entity verified as not a rare disease despite being categorized as false negative]",
+        "category": "false_negatives",
+        "document_id": "14320593",
+        "orpha_code": "2495",
+        "verification_method": "failed_disease_check",
+        "orpha_candidates": [
+          {
+            "name": "meningioma",
+            "id": "ORPHA:2495",
+            "similarity": 0.786272331431946
+          },
+          {
+            "name": "meningioma",
+            "id": "Orpha:2495",
+            "similarity": 0.786272331431946
+          },
+          {
+            "name": "tumor of meninges",
+            "id": "ORPHA:252025",
+            "similarity": 0.7696964362669667
+          },
+          {
+            "name": "familial multiple meningioma",
+            "id": "ORPHA:263662",
+            "similarity": 0.709506846439355
+          },
+          {
+            "name": "neuronal tumor",
+            "id": "ORPHA:251924",
+            "similarity": 0.6903021369157593
+          }
+        ]
+      }
+    ],
+    "false_positives": [
+      {
+        "entity": "hit",
+        "context": "productive of clear to yellow sputum. Denies hemoptysis. He was found to have sepesis secondary to bilateral pneumonia and sepsis. The patient was started on vanc/cefepime/azithromycin. He decompensated with hypotension and was transferred to ICU and diflucan was added. With Abx and fluid resusitation he improved. Course complicated by thrombocytopenia and was diagnosed with HIT with positive antibody assay. Diflucan d/c prior to transfer to ___. Heparin was d/c and plts improved. The patient then developed acute on chronic renal failure with a creatinine of 4. 4 (baseline 1. 3-1. 5) and was transferred on hospital day ___ (___) to ___ for possibility of dialysis.",
+        "is_rare_disease": true,
+        "flag_for_review": true,
+        "explanation": "abbreviation_expansion [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]",
+        "category": "false_positives",
+        "document_id": "13106750",
+        "orpha_code": "3325",
+        "verification_method": "abbreviation_expansion",
+        "expanded_term": "heparin induced thrombocytopenia",
+        "orpha_candidates": [
+          {
+            "name": "zinc finger hit-type containing 3",
+            "id": "ORPHA:487198",
+            "similarity": 0.6074702490233874
+          },
+          {
+            "name": "actin like 9",
+            "id": "ORPHA:609782",
+            "similarity": 0.5875396755773544
+          },
+          {
+            "name": "patched 1",
+            "id": "ORPHA:118121",
+            "similarity": 0.5850309193769635
+          },
+          {
+            "name": "hit",
+            "id": "Orpha:3325",
+            "similarity": 0.5845574230467777
+          },
+          {
+            "name": "reelin",
+            "id": "ORPHA:118272",
+            "similarity": 0.5822484899891995
+          }
+        ]
+      },
+      {
+        "entity": "renal cell carcinoma",
+        "context": "On both the frontal and the lateral radiograph, there is blunting of the left costophrenic sinus, suggesting the presence of a small left pleural effusion. Subsequent areas of left basilar atelectasis are present. No pneumonia, no pneumothorax. SURGICAL PATHOLOGY REPORT - Final PATHOLOGIC DIAGNOSIS: Right kidney, laparoscopic radical total nephrectomy: Clear cell renal cell carcinoma, conventional type, see synoptic report. Brief Hospital Course: Ms. ___ was admitted to Urology with a RIGHT renal mass after undergoing robot-assisted laparoscopic right radical nephrectomy. No concerning intraoperative events occurred please see dictated operative note for details. The patient received perioperative antibiotic prophylaxis.",
+        "is_rare_disease": true,
+        "flag_for_review": true,
+        "explanation": "multi_step_verification [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]",
+        "category": "false_positives",
+        "document_id": "13730709",
+        "orpha_code": "217071",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "renal cell carcinoma",
+            "id": "ORPHA:217071",
+            "similarity": 0.9331366904385096
+          },
+          {
+            "name": "tubulocystic renal cell carcinoma",
+            "id": "ORPHA:319325",
+            "similarity": 0.7043904451843964
+          },
+          {
+            "name": "clear cell renal carcinoma",
+            "id": "ORPHA:319276",
+            "similarity": 0.70065047064442
+          },
+          {
+            "name": "renal medullary carcinoma",
+            "id": "ORPHA:319319",
+            "similarity": 0.6900881752443546
+          },
+          {
+            "name": "mit family translocation renal cell carcinoma",
+            "id": "ORPHA:319308",
+            "similarity": 0.6831511352360213
+          }
+        ]
+      },
+      {
+        "entity": "legionella infection",
+        "context": "#ASEPTIC MENINGITIS: Following LP, Mr. ___ was started on broad coverage with meningitic doses of vanc, ceftriaxone, ampicillin, and acyclovir for 48 hours given suspicion for meningitis and ID and Neurology were both consulted. After 48 hours, Mr. ___ still reported sweats and fevers, CSF studies were consistent with aseptic meningitis, and initial culture results were negative so his antibiotics were discontinued and he was started on doxycycline for possible ehrlichia infection given his consititutional symptoms, transaminitis, sudden leukopenia, and history of frequent outdoor exposure and gardening. CSF crypto antigen test, viral culture, and bacterial/fungal cultures were negative. Blood and urine cultures were also negative and serum lyme titers were negative. Serum titers for CMV and EBV were negative for IgM and positive for IgG suggesting remote exposure/infection. Brain, C-spine,",
+        "is_rare_disease": true,
+        "flag_for_review": true,
+        "explanation": "multi_step_verification [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]",
+        "category": "false_positives",
+        "document_id": "17295887",
+        "orpha_code": "600832",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "legionella infection",
+            "id": "ORPHA:600832",
+            "similarity": 0.9516198981445306
+          },
+          {
+            "name": "non-pneumonic legionnaires' disease",
+            "id": "Orpha:99748",
+            "similarity": 0.6849538316359677
+          },
+          {
+            "name": "legionnaires disease",
+            "id": "ORPHA:549",
+            "similarity": 0.6827002933229601
+          },
+          {
+            "name": "legionnaires disease",
+            "id": "Orpha:549",
+            "similarity": 0.6827002933229601
+          },
+          {
+            "name": "pontiac fever",
+            "id": "Orpha:99748",
+            "similarity": 0.6619180043403461
+          }
+        ]
+      },
+      {
+        "entity": "non rare in europe: sj\u00f6gren syndrome",
+        "context": "4. Dyslipidemia:  Continued statin per home regimen. 5. Rheumatoid arthrtitis:  Seropositive. Recently diagnosed. On methotrexate, prednisone, and acetaminophen at home. Per rheumatology recs, sent ___, SSA, SSB, RNP, Sm, anti-CCP, SPEP to confirmed diagnosis and rule out other potential diagnoses such as Sjogren's and SLE. As above, methotrexate was discontinued and prednisone increased to 30mg PO daily. 6. Acute kidney injury:  Baseline creatinine unknown. Creatinine 1. 6 on admission, improved to 1. 0 on discharge. Improvement likely due to better forward flow following pericardiocentesis.",
+        "is_rare_disease": false,
+        "flag_for_review": false,
+        "explanation": "failed_disease_check",
+        "category": "false_positives",
+        "document_id": "19074847",
+        "orpha_code": "378",
+        "verification_method": "failed_disease_check",
+        "orpha_candidates": [
+          {
+            "name": "non rare in europe: sj\u00f6gren syndrome",
+            "id": "ORPHA:378",
+            "similarity": 0.9568897405809607
+          },
+          {
+            "name": "non rare in europe: secondary sj\u00f6gren syndrome",
+            "id": "ORPHA:289395",
+            "similarity": 0.8995733361761994
+          },
+          {
+            "name": "non rare in europe: rheumatoid arthritis",
+            "id": "ORPHA:284130",
+            "similarity": 0.7554091293509703
+          },
+          {
+            "name": "non rare in europe: coronary artery disease-hyperlipidemia-hypertension-diabetes-osteoporosis syndrome",
+            "id": "ORPHA:94062",
+            "similarity": 0.7137322278092311
+          },
+          {
+            "name": "primary sj\u00f6gren syndrome",
+            "id": "ORPHA:289390",
+            "similarity": 0.712339070050918
+          }
+        ]
+      },
+      {
+        "entity": "sle",
+        "context": "4. Dyslipidemia:  Continued statin per home regimen. 5. Rheumatoid arthrtitis:  Seropositive. Recently diagnosed. On methotrexate, prednisone, and acetaminophen at home. Per rheumatology recs, sent ___, SSA, SSB, RNP, Sm, anti-CCP, SPEP to confirmed diagnosis and rule out other potential diagnoses such as Sjogren's and SLE. As above, methotrexate was discontinued and prednisone increased to 30mg PO daily. 6. Acute kidney injury:  Baseline creatinine unknown. Creatinine 1. 6 on admission, improved to 1. 0 on discharge. Improvement likely due to better forward flow following pericardiocentesis.",
+        "is_rare_disease": true,
+        "flag_for_review": true,
+        "explanation": "abbreviation_expansion [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]",
+        "category": "false_positives",
+        "document_id": "19074847",
+        "orpha_code": "536",
+        "verification_method": "abbreviation_expansion",
+        "expanded_term": "systemic lupus erythematosus",
+        "orpha_candidates": [
+          {
+            "name": "sle",
+            "id": "Orpha:536",
+            "similarity": 0.763875861776628
+          },
+          {
+            "name": "sle, pediatric onset",
+            "id": "Orpha:93552",
+            "similarity": 0.662230067849979
+          },
+          {
+            "name": "idiopathic non-lupus full-house nephropathy",
+            "id": "Orpha:567544",
+            "similarity": 0.6407137834675746
+          },
+          {
+            "name": "idiopathic non-lupus full-house nephropathy",
+            "id": "ORPHA:567544",
+            "similarity": 0.6407137834675746
+          },
+          {
+            "name": "idiopathic non-lupus fhn",
+            "id": "Orpha:567544",
+            "similarity": 0.6303001996632481
+          }
+        ]
+      }
+    ],
+    "true_positives": [
+      {
+        "entity": "lyme disease",
+        "context": "Interpretation -------------- Consistent with early infection with Borrelia burg___. A new serum specimen should be submitted in ___ days to demonstrate seroconversion of IgG. Brief Hospital Course: ___ p/w right Bell's, left VI palsy, headache s/p target rash - all c/w Lyme meningitis.. ACTIVE ISSUES # Meningitis: Patient was started on broad coverage initially including acyclovir(though Lyme suspected given recent history of typical rash), this was narrowed to ceftrixone 2g daily once csf culture and hsv returned negative. IgM Lyme was positive, IgG negative. She did well there was no progression of deficits.",
+        "is_rare_disease": false,
+        "flag_for_review": true,
+        "explanation": "failed_disease_check [FLAGGED: Entity verified as not a rare disease despite being categorized as true positive]",
+        "category": "true_positives",
+        "document_id": "12742994",
+        "orpha_code": "91546",
+        "verification_method": "failed_disease_check",
+        "orpha_candidates": [
+          {
+            "name": "lyme disease",
+            "id": "Orpha:91546",
+            "similarity": 0.7763594578066423
+          },
+          {
+            "name": "lyme disease",
+            "id": "ORPHA:91546",
+            "similarity": 0.7763594578066423
+          },
+          {
+            "name": "lyme borreliosis",
+            "id": "Orpha:91546",
+            "similarity": 0.7536023554745102
+          },
+          {
+            "name": "rickettsial disease",
+            "id": "ORPHA:102021",
+            "similarity": 0.6499910737309821
+          },
+          {
+            "name": "lysosomal disease",
+            "id": "ORPHA:68366",
+            "similarity": 0.6434827660297329
+          }
+        ]
+      },
+      {
+        "entity": "angiosarcoma",
+        "context": "IMAGING: ==================== ___ CT Abd/Pelvis MPRESSION: 1. Large amount of tumor within the spleen with also involvement of the pancreatic tail and splenic hilum with extension into the splenic and gastroepiploic veins. As the majority of the tumor with is within the spleen, a splenic primary tumor such is an angiosarcoma is a primary consideration, however a primary pancreatic tail tumor is also possible. 2. Extensive hepatic metastases and tumor thrombus within the portal vein, superior portion of the SMV, and superior portion of the IMV. 3. Mass effect of this large splenic mass on the surrounding stomach, transverse colon, left adrenal gland and kidney without definite evidence of tumor invasion into these organs.",
+        "is_rare_disease": true,
+        "flag_for_review": false,
+        "explanation": "multi_step_verification",
+        "category": "true_positives",
+        "document_id": "14186401",
+        "orpha_code": "263413",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "angiosarcoma",
+            "id": "ORPHA:263413",
+            "similarity": 0.7132693796955437
+          },
+          {
+            "name": "fibrosarcoma",
+            "id": "ORPHA:2030",
+            "similarity": 0.6891643740001762
+          },
+          {
+            "name": "bone sarcoma",
+            "id": "ORPHA:223727",
+            "similarity": 0.6792321031153121
+          },
+          {
+            "name": "kaposi sarcoma",
+            "id": "ORPHA:33276",
+            "similarity": 0.654970164828067
+          },
+          {
+            "name": "kaposi sarcoma",
+            "id": "Orpha:33276",
+            "similarity": 0.654970164828067
+          }
+        ]
+      },
+      {
+        "entity": "waldenstr\u00f6m macroglobulinemia",
+        "context": "Erythromycin Base / Atorvastatin / gabapentin Attending: ___. Chief Complaint: vomiting Major Surgical or Invasive Procedure: none History of Present Illness: Ms. ___ is an ___ year old woman with PMH significant for cervical radiculopathy, HLD, hyperparathyroidism, HTN, migraine, mitral regurgitation, seizures, Waldenstrom's, presenting to the ER with nausea, vomiting since ___ pm. Patient woke up from sleep and was helped to the bathroom where she threw up. Family called an ambulance and patient was brought to the ER. Patient has thrown up multiple times with what looks to be nonbloody nonbilious emesis in the room. Of note patient is hard of hearing as well as husband who is there, so obtaining a",
+        "is_rare_disease": true,
+        "flag_for_review": false,
+        "explanation": "multi_step_verification",
+        "category": "true_positives",
+        "document_id": "14732233",
+        "orpha_code": "33226",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "waldenstr\u00f6m macroglobulinemia",
+            "id": "Orpha:33226",
+            "similarity": 0.7814585474928147
+          },
+          {
+            "name": "waldenstr\u00f6m macroglobulinemia",
+            "id": "ORPHA:33226",
+            "similarity": 0.7814585474928147
+          },
+          {
+            "name": "polyclonal hyperviscosity syndrome",
+            "id": "ORPHA:450322",
+            "similarity": 0.6904946610102559
+          },
+          {
+            "name": "agammaglobulinemia",
+            "id": "ORPHA:183669",
+            "similarity": 0.6595013593957431
+          },
+          {
+            "name": "syndromic agammaglobulinemia",
+            "id": "ORPHA:229720",
+            "similarity": 0.6297929169048176
+          }
+        ]
+      },
+      {
+        "entity": "ehrlichiosis",
+        "context": "sulfamethoxazole-trimethoprim 400-80 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). Disp:*30 Tablet(s)* Refills:*0* 7. doxycycline hyclate 100 mg Capsule Sig: One (1) Capsule PO Q12H (every 12 hours) for 8 days. Disp:*17 Capsule(s)* Refills:*0* Discharge Disposition: Home Discharge Diagnosis: Primary: Aseptic meningitis (likely ehrlichiosis) Discharge Condition: Mental Status: Clear and coherent. Level of Consciousness: Alert and interactive. Activity Status: Ambulatory - Independent. Discharge Instructions: Dear Mr. ___, You were admitted to ___ due to a history of fevers, sweats, neck pain, and mild left arm weakness/sensation changes.",
+        "is_rare_disease": true,
+        "flag_for_review": false,
+        "explanation": "multi_step_verification",
+        "category": "true_positives",
+        "document_id": "17295887",
+        "orpha_code": "1902",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "ehrlichiosis",
+            "id": "ORPHA:1902",
+            "similarity": 0.7114986769462914
+          },
+          {
+            "name": "ehec-hus",
+            "id": "Orpha:90038",
+            "similarity": 0.6569213686561426
+          },
+          {
+            "name": "shml",
+            "id": "Orpha:158014",
+            "similarity": 0.6353188663606532
+          },
+          {
+            "name": "sinus histiocytosis with massive lymphadenopathy",
+            "id": "Orpha:158014",
+            "similarity": 0.6350563312355458
+          },
+          {
+            "name": "hemolytic uremic syndrome associated with shiga toxin-producing escherichia coli",
+            "id": "Orpha:90038",
+            "similarity": 0.634294821216002
+          }
+        ]
+      },
+      {
+        "entity": "cholangiocarcinoma",
+        "context": "significant jaundice. Was sent to ___ clinic appt ___) and was found to have a very high bilirubin and was sent to the ER for evaluation. He has no s/s of RUQ pain, fever/chills, nausea/vomiting. Other than some mild fatigue, the patient is completely asymptomatic. In ER: A CT confirmed the findings of a mass. mets vs. cholangiocarcinoma most likely dx. ROS: -Constitutional: [x]WNL []Weight loss []Fatigue/Malaise []Fever []Chills/Rigors []Nightweats []Anorexia -Cardiac: [x]WNL []Chest pain []Palpitations ___ edema []Orthopnea/PND []DOE -Respiratory: [x]WNL []SOB []Pleuritic pain []Hemoptysis []Cough -Gastrointestinal: see HPI -Musculoskeletal: [x]WNL []Myalgias []Arthralgias []Back pain -Neurological: [ x]WNL []Numbness of extremities []Weakness of extremities []Parasthesias []Dizziness/Lightheaded []Vertigo",
+        "is_rare_disease": true,
+        "flag_for_review": false,
+        "explanation": "multi_step_verification",
+        "category": "true_positives",
+        "document_id": "17951297",
+        "orpha_code": "70567",
+        "verification_method": "multi_step_verification",
+        "orpha_candidates": [
+          {
+            "name": "cholangiocarcinoma",
+            "id": "Orpha:70567",
+            "similarity": 0.796158406006707
+          },
+          {
+            "name": "cholangiocarcinoma",
+            "id": "ORPHA:70567",
+            "similarity": 0.796158406006707
+          },
+          {
+            "name": "bile duct cancer",
+            "id": "Orpha:70567",
+            "similarity": 0.7534306712032396
+          },
+          {
+            "name": "cca",
+            "id": "Orpha:70567",
+            "similarity": 0.7461981555572956
+          },
+          {
+            "name": "biliary cystadenocarcinoma",
+            "id": "ORPHA:424982",
+            "similarity": 0.7054184496189414
+          }
+        ]
+      }
+    ]
+  }
+}
